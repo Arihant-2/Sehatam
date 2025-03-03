@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sehat Sangh Dashboard</title>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+        
+   
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ml-3 text-xl">SehatSangh</span>
+          </a>
+          <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+            <a class="mr-5 hover:text-gray-900" href="home.html">Home</a>
+            <a class="mr-5 hover:text-gray-900" href="dashboard.html">Dashboard</a>
+            <a class="mr-5 hover:text-gray-900" href="about.html">About</a>
+            <a class="mr-5 hover:text-gray-900" href="contact.html">contact</a>
+          </nav>
+          
+          <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      
+
+
+        <input type="text" id="search" placeholder="Search..." class="p-2 border rounded-md w-64">
+        <div class="flex items-center space-x-4">
+            <span class="text-gray-600">Hello, User</span>
+            <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-full">
+            <button id="logout" class="bg-red-500 text-white px-4 py-2 rounded">Logout</button>
+        </div>
+    </header>
+
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div id="sidebar" class="w-64 bg-green-600 text-white p-5 space-y-6">
+            <h1 class="text-2xl font-bold">Sehat Sangh</h1>
+            <nav>
+                <a href="#" class="block py-2 px-4 hover:bg-green-700 rounded">Dashboard</a>
+                <a href="#" class="block py-2 px-4 hover:bg-green-700 rounded">Users</a>
+                <a href="#" class="block py-2 px-4 hover:bg-green-700 rounded">Appointments</a>
+                <a href="#" class="block py-2 px-4 hover:bg-green-700 rounded">Settings</a>
+                <a href="#" id="logoutSidebar" class="block py-2 px-4 hover:bg-green-700 rounded">Logout</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col p-6">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Dashboard Overview</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold">Total Users</h3>
+                    <p id="totalUsers" class="text-3xl font-bold">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold">Appointments</h3>
+                    <p id="appointments" class="text-3xl font-bold">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold">Revenue</h3>
+                    <p id="revenue" class="text-3xl font-bold">$0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mock data fetching function
+            function fetchData() {
+                return {
+                    totalUsers: 1250,
+                    appointments: 325,
+                    revenue: "$15,400"
+                };
+            }
+
+            // Update dashboard stats
+            const data = fetchData();
+            document.getElementById("totalUsers").textContent = data.totalUsers;
+            document.getElementById("appointments").textContent = data.appointments;
+            document.getElementById("revenue").textContent = data.revenue;
+
+            // Logout functionality
+            document.getElementById("logout").addEventListener("click", function () {
+                alert("Logging out...");
+                window.location.href = "login.html";
+            });
+            document.getElementById("logoutSidebar").addEventListener("click", function () {
+                alert("Logging out...");
+                window.location.href = "login.html";
+            });
+        });
+    </script>
+</body>
+</html>
